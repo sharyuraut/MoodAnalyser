@@ -6,12 +6,7 @@ namespace MoodAnalyser
 {
     public class MoodAnalyse
     {
-        string message;
-
-        public MoodAnalyse()
-        {
-            message = "";
-        }
+        private string message;
         public MoodAnalyse(string message)
         {
             this.message = message;
@@ -20,19 +15,18 @@ namespace MoodAnalyser
         {
             try
             {
-                if (message.ToUpper().Contains("SAD"))
+                if (this.message.Equals(string.Empty))
                 {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_EMPTY, "Mood should not be empty!");
+                }
+                if (this.message.Contains("Sad"))
                     return "SAD";
-                }
-                if (message.ToUpper().Contains("HAPPY"))
-                {
+                else
                     return "HAPPY";
-                }
-                return "";
             }
-            catch (Exception e)
+            catch (NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_NULL, "Mood should not be null!");
             }
         }
     }
