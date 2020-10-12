@@ -7,16 +7,26 @@ namespace MoodAnalyserMSTestWithCore
     [TestClass]
     public class UnitTest1
     {
+
         [TestMethod]
-        public void GivenSadshouldReturnSAD()
+        public void T1_1()
         {
-            string expected = "SAD";
-            string message = null;
-            MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+            string message = "I am in Sad Mood";
+            MoodAnalyse moodAnalyser = new MoodAnalyse(message);
 
-            string mood = moodAnalyse.AnalyseMood();
+            string result = moodAnalyser.AnalyseMood();
 
-            Assert.AreEqual(expected, mood);
+            Assert.AreEqual("SAD", result);
+        }
+        [TestMethod]
+        public void T1_2()
+        {
+            string message = "I am in Happy Mood";
+            MoodAnalyse moodAnalyser = new MoodAnalyse(message);
+
+            string result = moodAnalyser.AnalyseMood();
+
+            Assert.AreEqual("HAPPY", result);
         }
     }
 }
