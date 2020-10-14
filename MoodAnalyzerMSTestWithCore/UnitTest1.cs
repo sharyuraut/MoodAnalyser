@@ -79,5 +79,12 @@ namespace MoodAnalyserMSTestWithCore
             expected.Equals(obj);
         }
 
+        [TestMethod]
+        public void GivenHappyMoodShouldReturnHappy()
+        {
+            string expectedmood = "Happy";
+            string actualmood = MoodAnalyseFactory.InvokeAnalyseMood("Happy", "AnalyseMood");
+            Assert.AreEqual(expectedmood, actualmood);
+        }
     }
 }
