@@ -16,6 +16,13 @@ namespace MoodAnalyser
             this.message = message;
         }
         /// <summary>
+        /// Initializes a new instance of the <see cref="MoodAnalyse"/> class.
+        /// </summary>
+        public MoodAnalyse()
+        {
+
+        }
+        /// <summary>
         /// Analyses the mood.
         /// </summary>
         /// <returns></returns>
@@ -41,11 +48,6 @@ namespace MoodAnalyser
             {
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_NULL, "Mood should not be null!");
             }
-        }
-
-        public MoodAnalyse()
-        {
-
         }
     }
 }

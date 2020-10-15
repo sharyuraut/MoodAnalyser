@@ -9,11 +9,22 @@ namespace MoodAnalyser
 {
     public class MoodAnalyseFactory
     {
+        /// <summary>
+        /// Creates the mood analyse.
+        /// </summary>
+        /// <param name="className">Name of the class.</param>
+        /// <param name="constructorName">Name of the constructor.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">
+        /// Class Not Found
+        /// or
+        /// Constructor Not Found
+        /// </exception>
         public static object CreateMoodAnalyse(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
             Match result = Regex.Match(className, pattern);
-
+            
             if (result.Success)
             {
                 try
